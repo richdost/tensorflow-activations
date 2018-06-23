@@ -10,7 +10,7 @@ mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 # Loosely based on this tutorial: http://adventuresinmachinelearning.com/convolutional-neural-networks-tutorial-tensorflow/
 def learn_to_recognize_mnist(epochs = 10, learning_rate = 0.75, batch_size = 100, activator = tf.nn.relu):
     tf.reset_default_graph()
-    writer = tf.summary.FileWriter('./summary')
+    writer = tf.summary.FileWriter('./summary', graph = tf.get_default_graph())
     
     with tf.name_scope('input_output'):
         mnist_pixels = tf.placeholder(tf.float32, [None, 784], name = 'mnist_pixels')  # 28 * 28 = 784 inputs
