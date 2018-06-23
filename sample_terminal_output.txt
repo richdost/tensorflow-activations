@@ -1,0 +1,70 @@
+
+# Sample terminal output. Each activation function's learning is shown.
+
+Tiny:tensorflow-activations rd$ py mnist_cnn.py 
+Extracting MNIST_data/train-images-idx3-ubyte.gz
+Extracting MNIST_data/train-labels-idx1-ubyte.gz
+Extracting MNIST_data/t10k-images-idx3-ubyte.gz
+Extracting MNIST_data/t10k-labels-idx1-ubyte.gz
+
+----- relu -----
+Epoch  0  has distance 2.28823751384562
+Epoch  1  has distance 1.6565513385425923
+Epoch  2  has distance 1.6192236713929626
+Epoch  3  has distance 0.8603281064466999
+Epoch  4  has distance 0.6392044513062992
+Epoch  5  has distance 0.5756205202503638
+Epoch  6  has distance 0.5180668122660028
+Trained to accuracy  0.8952
+
+----- relu6 -----
+Epoch  0  has distance 1.7803273028677138
+Epoch  1  has distance 0.7274502982605587
+Epoch  2  has distance 0.5750666998462243
+Epoch  3  has distance 0.5232482663338839
+Epoch  4  has distance 0.481247023723342
+Epoch  5  has distance 0.43209553042596055
+Epoch  6  has distance 0.4067618674581704
+Trained to accuracy  0.9382
+
+----- leaky_relu -----
+Epoch  0  has distance 34.4114340513403
+Epoch  1  has distance 34.97363654049965
+Epoch  2  has distance 34.97363651622434
+Epoch  3  has distance 34.9736365786466
+Epoch  4  has distance 34.97363649888478
+Epoch  5  has distance 34.97363653703177
+Epoch  6  has distance 34.973636648004735
+Trained to accuracy  0.101
+
+----- softmax -----
+Epoch  0  has distance 2.670160756111144
+Epoch  1  has distance 2.2811384628035816
+Epoch  2  has distance 1.676577811241149
+Epoch  3  has distance 1.311942408735103
+Epoch  4  has distance 1.0115587438236577
+Epoch  5  has distance 0.7792782088301401
+Epoch  6  has distance 0.677553427977995
+Trained to accuracy  0.9171
+
+----- tanh -----
+Epoch  0  has distance 34.948884614164214
+Epoch  1  has distance 35.13021805156364
+Epoch  2  has distance 35.130218103582216
+Epoch  3  has distance 35.1302181209218
+Epoch  4  has distance 35.13021813826129
+Epoch  5  has distance 35.130218117453836
+Epoch  6  has distance 35.13021806890321
+Trained to accuracy  0.0958
+
+----- sigmoid -----
+Epoch  0  has distance 10.001004800525564
+Epoch  1  has distance 0.4537044776298781
+Epoch  2  has distance 0.33778482920744196
+Epoch  3  has distance 0.2763022308999844
+Epoch  4  has distance 0.23798011514950884
+Epoch  5  has distance 0.20985938084396472
+Epoch  6  has distance 0.18580755243247232
+Trained to accuracy  0.9635
+
+---------------------------------

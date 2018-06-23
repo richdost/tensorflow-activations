@@ -12,8 +12,10 @@ def learn_to_recognize_mnist(epochs = 10, learning_rate = 0.75, batch_size = 100
     tf.reset_default_graph()
     writer = tf.summary.FileWriter('./summary', graph = tf.get_default_graph())
     
-    with tf.name_scope('input_output'):
+    with tf.name_scope('input'):
         mnist_pixels = tf.placeholder(tf.float32, [None, 784], name = 'mnist_pixels')  # 28 * 28 = 784 inputs
+
+    with tf.name_scope('output'):
         result_one_hot = tf.placeholder(tf.float32, [None, 10], name = 'result_one_hot')   # 10 possible results with one-hot
 
     with tf.name_scope('hidden_layer_input'):
@@ -91,7 +93,7 @@ activators = {
 for activator_name in activators:
     activator = activators[activator_name]
     print('\n-----', activator_name, '-----')
-    learn_to_recognize_mnist(epochs = 3, activator_name = activator_name, activator = activator)
+    learn_to_recognize_mnist(epochs = 7, activator_name = activator_name, activator = activator)
 
 
 print('\n---------------------------------\n\n')
