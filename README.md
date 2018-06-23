@@ -24,7 +24,7 @@ Compares effectiveness of activation functions in tensorflow for mnist cnn
 
 ## Output
 The learning curve for each activation method can be viewed 
- - graphically in tensorboard - View [a sample here](./sample_tensorboard_learning_curve.txt)
+ - graphically in tensorboard - View [a sample here](./sample_tensorboard_learning_curve.png)
  - textually in the terminal output - View [a sample here](./sample_terminal_output.txt)
 
 
