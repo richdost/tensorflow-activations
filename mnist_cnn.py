@@ -17,7 +17,7 @@ def learn_to_recognize_mnist(epochs = 10, learning_rate = 0.75, batch_size = 100
         result_one_hot = tf.placeholder(tf.float32, [None, 10], name = 'result_one_hot')   # 10 possible results with one-hot
 
     with tf.name_scope('hidden_layer_input'):
-        hidden_layer_input_weights = tf.Variable(tf.random_normal([784, 300], stddev=0.03), name='hidden_layer_input_weights')
+        hidden_layer_input_weights = tf.Variable(tf.random_normal([784, 300], stddev=0.005), name='hidden_layer_input_weights')
         pixels_times_weights = tf.matmul(mnist_pixels, hidden_layer_input_weights, name = 'pixels_times_weights')
         hidden_layer_input_bias = tf.Variable(tf.random_normal([300]), name='hidden_layer_input_bias')
         hidden_layer_value = tf.add(pixels_times_weights, hidden_layer_input_bias, name = 'hidden_layer_value') # pixels times weights plus bias
@@ -43,7 +43,7 @@ def learn_to_recognize_mnist(epochs = 10, learning_rate = 0.75, batch_size = 100
             , axis=1))
         optimiser = tf.train.GradientDescentOptimizer(learning_rate=learning_rate).minimize(cross_entropy)
 
-    with tf.name_scope(activator_name + '_accuracy'):
+    with tf.name_scope(activator_name + '_`accuracy'):
         distance = tf.equal(tf.argmax(result_one_hot, 1), tf.argmax(hidden_layer_output, 1))
         accuracy = tf.reduce_mean(tf.cast(distance, tf.float32))
         tf.summary.scalar('run', accuracy)  #summary
