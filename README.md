@@ -8,8 +8,6 @@ Compares effectiveness of activation functions in tensorflow for mnist cnn
 
 ## Output
 
-Note that tanh and sigmoid are not learning.
-That may be because the clip is not correct for them.
 Currently outputs something like the below... 
 
 ```bash
