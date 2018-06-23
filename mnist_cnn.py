@@ -8,9 +8,9 @@ mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 
 # Parameterized mnist learning. See effectiveness of different activation functions.
 # Loosely based on this tutorial: http://adventuresinmachinelearning.com/convolutional-neural-networks-tutorial-tensorflow/
-def learn_to_recognize_mnist(epochs = 10, learning_rate = 0.75, batch_size = 100, activator = tf.nn.relu):
+def learn_to_recognize_mnist(epochs = 10, learning_rate = 0.75, batch_size = 100, activator = tf.nn.relu, activator_name = '?'):
     tf.reset_default_graph()
-    writer = tf.summary.FileWriter('./summary', graph = tf.get_default_graph())
+    writer = tf.summary.FileWriter('./summary/summary_for_' + activator_name, graph = tf.get_default_graph())
     
     with tf.name_scope('input_output'):
         mnist_pixels = tf.placeholder(tf.float32, [None, 784], name = 'mnist_pixels')  # 28 * 28 = 784 inputs
@@ -91,7 +91,7 @@ activators = {
 for activator_name in activators:
     activator = activators[activator_name]
     print('\n-----', activator_name, '-----')
-    learn_to_recognize_mnist(epochs = 3, activator = activator)
+    learn_to_recognize_mnist(epochs = 3, activator_name = activator_name, activator = activator)
 
 
 print('\n---------------------------------\n\n')
