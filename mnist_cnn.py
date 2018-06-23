@@ -30,7 +30,7 @@ def learn_to_recognize_mnist(epochs = 10, learning_rate = 0.75, batch_size = 100
     with tf.name_scope('hidden_layer_output'):
         hidden_layer_output_weights = tf.Variable(tf.random_normal([300, 10], stddev=0.03), name = 'hidden_layer_output_weights')
         hidden_layer_times_weights = tf.matmul(hidden_layer_input_activated, hidden_layer_output_weights)
-        hidden_layer_output_bias = tf.Variable(tf.random_normal([10]), name='b2')
+        hidden_layer_output_bias = tf.Variable(tf.random_normal([10]), name='hidden_layer_output_bias')
         hidden_layer_output_value = tf.add(hidden_layer_times_weights, hidden_layer_output_bias)
 
         with tf.name_scope('hidden_layer_output_activation'):
@@ -46,7 +46,7 @@ def learn_to_recognize_mnist(epochs = 10, learning_rate = 0.75, batch_size = 100
     with tf.name_scope('accuracy'):
         distance = tf.equal(tf.argmax(result_one_hot, 1), tf.argmax(hidden_layer_output, 1))
         accuracy = tf.reduce_mean(tf.cast(distance, tf.float32))
-        tf.summary.scalar('accuracy', accuracy)  #summary
+        tf.summary.scalar('run', accuracy)  #summary
         merged = tf.summary.merge_all()
 
     # run
