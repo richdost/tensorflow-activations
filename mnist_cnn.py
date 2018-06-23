@@ -43,7 +43,7 @@ def learn_to_recognize_mnist(epochs = 10, learning_rate = 0.75, batch_size = 100
             , axis=1))
         optimiser = tf.train.GradientDescentOptimizer(learning_rate=learning_rate).minimize(cross_entropy)
 
-    with tf.name_scope(activator_name + '_`accuracy'):
+    with tf.name_scope(activator_name + '_accuracy'):
         distance = tf.equal(tf.argmax(result_one_hot, 1), tf.argmax(hidden_layer_output, 1))
         accuracy = tf.reduce_mean(tf.cast(distance, tf.float32))
         tf.summary.scalar('run', accuracy)  #summary
