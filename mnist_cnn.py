@@ -44,8 +44,8 @@ def learn_to_recognize_mnist(epochs = 10, learning_rate = 0.75, batch_size = 100
         optimiser = tf.train.GradientDescentOptimizer(learning_rate=learning_rate).minimize(cross_entropy)
 
     with tf.name_scope('accuracy'):
-        correct_prediction = tf.equal(tf.argmax(result_one_hot, 1), tf.argmax(hidden_layer_output, 1))
-        accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+        distance = tf.equal(tf.argmax(result_one_hot, 1), tf.argmax(hidden_layer_output, 1))
+        accuracy = tf.reduce_mean(tf.cast(distance, tf.float32))
         tf.summary.scalar('accuracy', accuracy)  #summary
         merged = tf.summary.merge_all()
 
@@ -77,19 +77,23 @@ def learn_to_recognize_mnist(epochs = 10, learning_rate = 0.75, batch_size = 100
     session.close()
     writer.close()
 
-print('\n----- using relu -----')
-learn_to_recognize_mnist(epochs = 9, activator = tf.nn.relu)
+activators = {
+    'relu': tf.nn.relu,
+    'relu6': tf.nn.relu6,
+    'leaky_relu': tf.nn.leaky_relu,
+    'softmax': tf.nn.softmax,
+    'tanh': tf.nn.tanh,
+#    'hard_tanh': tf.nn.hard_tanh,
+#    'ramp': tf.nn.ramp,
+    'sigmoid': tf.nn.sigmoid
+}
 
-print('\n----- using softmax -----')
-learn_to_recognize_mnist(epochs = 9, activator = tf.nn.softmax)
+for activator_name in activators:
+    activator = activators[activator_name]
+    print('\n-----', activator_name, '-----')
+    learn_to_recognize_mnist(epochs = 3, activator = activator)
 
-print('\n----- using tanh -----')
-learn_to_recognize_mnist(epochs = 9, activator = tf.nn.tanh)
 
-print('\n----- using sigmoid -----')
-learn_to_recognize_mnist(epochs = 9, activator = tf.nn.sigmoid)
-
-print('\n----- using relu6 -----')
-learn_to_recognize_mnist(epochs = 9, activator = tf.nn.relu6)
+print('\n---------------------------------\n\n')
 
 
