@@ -4,7 +4,7 @@ Class project for Machine Learning in Tensorflow, UC Berkeley Extension.
 
 ## To run 
 ```bash
-> python3 mnist_cnn.py
+> python3 compare_activation_functions.py
 ```
 
 ## Output
@@ -16,6 +16,7 @@ The learning curve for each activation method can be viewed
 To view tensorboard output first run the mnist_cnn.py, then tensorboard.
 
 ```bash
+> python3 compare_activation_functions.py
 > tensorboard --logdir='summary'
 ```
 
