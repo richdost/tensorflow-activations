@@ -10,6 +10,7 @@ mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
 # Loosely based on this tutorial: http://adventuresinmachinelearning.com/convolutional-neural-networks-tutorial-tensorflow/
 def learn_to_recognize_mnist(epochs = 10, learning_rate = 0.75, batch_size = 100, activator = tf.nn.relu, activator_name = '?'):
     tf.reset_default_graph()
+    tf.set_random_seed(55) # does not work
     writer = tf.summary.FileWriter('./summary', graph = tf.get_default_graph())
     
     with tf.name_scope('input'):
@@ -19,7 +20,7 @@ def learn_to_recognize_mnist(epochs = 10, learning_rate = 0.75, batch_size = 100
         result_one_hot = tf.placeholder(tf.float32, [None, 10], name = 'result_one_hot')   # 10 possible results with one-hot
 
     with tf.name_scope('hidden_layer_input'):
-        hidden_layer_input_weights = tf.Variable(tf.random_normal([784, 300], stddev=0.005), name='hidden_layer_input_weights')
+        hidden_layer_input_weights = tf.Variable(tf.random_normal([784, 300], stddev=0.03), name='hidden_layer_input_weights')
         pixels_times_weights = tf.matmul(mnist_pixels, hidden_layer_input_weights, name = 'pixels_times_weights')
         hidden_layer_input_bias = tf.Variable(tf.random_normal([300]), name='hidden_layer_input_bias')
         hidden_layer_value = tf.add(pixels_times_weights, hidden_layer_input_bias, name = 'hidden_layer_value') # pixels times weights plus bias
@@ -100,11 +101,13 @@ activators = {
     'sigmoid': tf.nn.sigmoid
 }
 
+print('\n\n---------------------------------')
+print('-----   test activation functions -----')
+
 for activator_name in activators:
     activator = activators[activator_name]
-    print('\n-----', activator_name, '-----')
+    print('\n---', activator_name, '---')
     learn_to_recognize_mnist(epochs = 7, activator_name = activator_name, activator = activator)
-
 
 print('\n---------------------------------\n\n')
 
