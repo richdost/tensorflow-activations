@@ -24,13 +24,13 @@ These activation functions are not in tensorflow so were implemented in code.
 They are very simple.
   - [Ramp](./ramp_activation_function.png) is implemented as
   ```python
-  tf.clip_by_value(x, clip_value_min=0.001, clip_value_max=0.999, name='ramp')
+  def ramp(x):
+    return tf.clip_by_value(x, clip_value_min=0.001, clip_value_max=0.999, name='ramp')
   ```
   - [Swish](./swish_activation_function.png) is implemented as
-    ```python
-  tf.clip_by_value(x, clip_value_min=0.001, clip_value_max=0.999, name='ramp')
   ```python
-  swished = tf.nn.sigmoid(x) * x
+  def swish(x):
+    return tf.nn.sigmoid(x) * x
   ```
 
 
