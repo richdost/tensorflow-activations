@@ -1,22 +1,6 @@
 # tensorflow-activator-comparator
-Compares effectiveness of activation functions in tensorflow for mnist cnn
-
-
-## Presentation
-  - Introduction
-    - Why NMIST
-    - Why compare activation functions
-  - Output
-    - Tensorboard
-    - Learning speed comparison
-  - Algorithm
-    - Low level so all visible
-    - Walk through
-      - Ramp and Swish
-    - Further work
-      - tanh etc issues (local minima?)
-      - Equal initial weights
-      - Learning rate graph
+Compares effectiveness of activation functions in tensorflow for mnist cnn.
+Class project for Machine Learning in Tensorflow, UC Berkeley Extension.
 
 ## To run 
 ```bash
@@ -36,8 +20,34 @@ To view tensorboard output first run the mnist_cnn.py, then tensorboard.
 ```
 
 ## Ramp and Swish
-The Ramp and Swish activation functions are not in tensorflow so were implemented.
+These activation functions are not in tensorflow so were implemented in code.
 They are very simple.
-  - [Ramp](./ramp_activation_function.png)
-  - [Swish](./swish_activation_function.png)
+  - [Ramp](./ramp_activation_function.png) is implemented as
+  ```python
+  tf.clip_by_value(x, clip_value_min=0.001, clip_value_max=0.999, name='ramp')
+  ```
+  - [Swish](./swish_activation_function.png) is implemented as
+    ```python
+  tf.clip_by_value(x, clip_value_min=0.001, clip_value_max=0.999, name='ramp')
+  ```python
+  swished = tf.nn.sigmoid(x) * x
+  ```
+
+
+## Presentation
+Outline for class presentation
+  - Introduction
+    - Why NMIST
+    - Why compare activation functions
+  - Output
+    - Tensorboard
+    - Learning speed comparison
+  - Algorithm
+    - Low level so all visible
+    - Walk through
+      - Ramp and Swish
+    - Further work
+      - tanh etc issues (local minima?)
+      - Equal initial weights
+      - Learning rate graph
 
