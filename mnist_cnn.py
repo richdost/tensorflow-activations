@@ -79,14 +79,24 @@ def learn_to_recognize_mnist(epochs = 10, learning_rate = 0.75, batch_size = 100
     session.close()
     writer.close()
 
+# See description of ramp here http://iopscience.iop.org/article/10.1088/1757-899X/224/1/012054/pdf
+# It's a simple clip of values outside 0..1
+def ramp(x):
+    return tf.clip_by_value(x, clip_value_min=0.001, clip_value_max=0.999, name='ramp')
+
+def swish(x):
+    with tf.name_scope('swish'):
+        swished = tf.nn.sigmoid(x) * x
+        return swished
+
 activators = {
     'relu': tf.nn.relu,
     'relu6': tf.nn.relu6,
     'leaky_relu': tf.nn.leaky_relu,
     'softmax': tf.nn.softmax,
     'tanh': tf.nn.tanh,
-#    'hard_tanh': tf.nn.hard_tanh,
-#    'ramp': tf.nn.ramp,
+    'ramp': ramp,
+    'swish': swish,
     'sigmoid': tf.nn.sigmoid
 }
 

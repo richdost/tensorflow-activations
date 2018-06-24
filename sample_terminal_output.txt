@@ -1,6 +1,3 @@
-
-# Sample terminal output. Each activation function's learning is shown.
-
 Tiny:tensorflow-activations rd$ py mnist_cnn.py 
 Extracting MNIST_data/train-images-idx3-ubyte.gz
 Extracting MNIST_data/train-labels-idx1-ubyte.gz
@@ -8,63 +5,86 @@ Extracting MNIST_data/t10k-images-idx3-ubyte.gz
 Extracting MNIST_data/t10k-labels-idx1-ubyte.gz
 
 ----- relu -----
-Epoch  0  has distance 2.28823751384562
-Epoch  1  has distance 1.6565513385425923
-Epoch  2  has distance 1.6192236713929626
-Epoch  3  has distance 0.8603281064466999
-Epoch  4  has distance 0.6392044513062992
-Epoch  5  has distance 0.5756205202503638
-Epoch  6  has distance 0.5180668122660028
-Trained to accuracy  0.8952
+Epoch  0  has distance 1.6890693426403143
+Epoch  1  has distance 0.522913718792525
+Epoch  2  has distance 0.381256956173615
+Epoch  3  has distance 0.32733264892616104
+Epoch  4  has distance 0.29910911406983054
+Epoch  5  has distance 0.27698340480977796
+Epoch  6  has distance 0.251457105360248
+Trained to accuracy  0.9493
 
 ----- relu6 -----
-Epoch  0  has distance 1.7803273028677138
-Epoch  1  has distance 0.7274502982605587
-Epoch  2  has distance 0.5750666998462243
-Epoch  3  has distance 0.5232482663338839
-Epoch  4  has distance 0.481247023723342
-Epoch  5  has distance 0.43209553042596055
-Epoch  6  has distance 0.4067618674581704
-Trained to accuracy  0.9382
+Epoch  0  has distance 1.4176614986766463
+Epoch  1  has distance 0.5119091888855807
+Epoch  2  has distance 0.38464080642570153
+Epoch  3  has distance 0.32679147429086924
+Epoch  4  has distance 0.29467910419133575
+Epoch  5  has distance 0.2667567434500562
+Epoch  6  has distance 0.24856234376403435
+Trained to accuracy  0.9528
 
 ----- leaky_relu -----
-Epoch  0  has distance 34.4114340513403
-Epoch  1  has distance 34.97363654049965
-Epoch  2  has distance 34.97363651622434
-Epoch  3  has distance 34.9736365786466
-Epoch  4  has distance 34.97363649888478
-Epoch  5  has distance 34.97363653703177
-Epoch  6  has distance 34.973636648004735
-Trained to accuracy  0.101
+Epoch  0  has distance 8.009110938744104
+Epoch  1  has distance 0.6872837934439833
+Epoch  2  has distance 0.37712392996658006
+Epoch  3  has distance 0.28830107395960564
+Epoch  4  has distance 0.3022793852334674
+Epoch  5  has distance 0.25738439401611685
+Epoch  6  has distance 0.2597139925027098
+Trained to accuracy  0.9653
 
 ----- softmax -----
-Epoch  0  has distance 2.670160756111144
-Epoch  1  has distance 2.2811384628035816
-Epoch  2  has distance 1.676577811241149
-Epoch  3  has distance 1.311942408735103
-Epoch  4  has distance 1.0115587438236577
-Epoch  5  has distance 0.7792782088301401
-Epoch  6  has distance 0.677553427977995
-Trained to accuracy  0.9171
+Epoch  0  has distance 2.536479177691719
+Epoch  1  has distance 1.8715724121440562
+Epoch  2  has distance 1.674703600189902
+Epoch  3  has distance 1.298356720859355
+Epoch  4  has distance 1.2309164132855155
+Epoch  5  has distance 0.9477280583706772
+Epoch  6  has distance 0.8273863435875283
+Trained to accuracy  0.8467
 
 ----- tanh -----
-Epoch  0  has distance 34.948884614164214
-Epoch  1  has distance 35.13021805156364
-Epoch  2  has distance 35.130218103582216
-Epoch  3  has distance 35.1302181209218
-Epoch  4  has distance 35.13021813826129
-Epoch  5  has distance 35.130218117453836
-Epoch  6  has distance 35.13021806890321
-Trained to accuracy  0.0958
+Epoch  0  has distance 26.84332687724721
+Epoch  1  has distance 24.972971295443415
+Epoch  2  has distance 24.409563872597435
+Epoch  3  has distance 24.071930843700073
+Epoch  4  has distance 23.887744837674223
+Epoch  5  has distance 23.894480015147828
+Epoch  6  has distance 23.734769835038605
+Trained to accuracy  0.3062
+
+----- ramp -----
+Epoch  0  has distance 34.08283436428424
+Epoch  1  has distance 34.59033061287623
+Epoch  2  has distance 34.59033070997761
+Epoch  3  has distance 34.590330633683685
+Epoch  4  has distance 34.590330703041836
+Epoch  5  has distance 34.590330605940444
+Epoch  6  has distance 34.59033066142692
+Trained to accuracy  0.1135
+
+----- swish -----
+Epoch  0  has distance 0.5684169135581356
+Epoch  1  has distance 0.18578229392794043
+Epoch  2  has distance 0.12920089975422736
+Epoch  3  has distance 0.10029109315523371
+Epoch  4  has distance 0.07670637654225256
+Epoch  5  has distance 0.06048482153839861
+Epoch  6  has distance 0.04881752147000622
+Trained to accuracy  0.9781
 
 ----- sigmoid -----
-Epoch  0  has distance 10.001004800525564
-Epoch  1  has distance 0.4537044776298781
-Epoch  2  has distance 0.33778482920744196
-Epoch  3  has distance 0.2763022308999844
-Epoch  4  has distance 0.23798011514950884
-Epoch  5  has distance 0.20985938084396472
-Epoch  6  has distance 0.18580755243247232
-Trained to accuracy  0.9635
+Epoch  0  has distance 1.5578434561328447
+Epoch  1  has distance 0.3932569803568452
+Epoch  2  has distance 0.30869209694591415
+Epoch  3  has distance 0.25931584962389687
+Epoch  4  has distance 0.22170213019983337
+Epoch  5  has distance 0.1963522409376773
+Epoch  6  has distance 0.17532325785945774
+Trained to accuracy  0.9639
 
 ---------------------------------
+
+
+Tiny:tensorflow-activations rd$ 

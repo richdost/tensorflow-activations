@@ -12,8 +12,9 @@ Compares effectiveness of activation functions in tensorflow for mnist cnn
   - Algorithm
     - Low level so all visible
     - Walk through
+      - Ramp and Swish
     - Further work
-      - tanh and leaky_relu issues
+      - tanh etc issues (local minima?)
       - Equal initial weights
       - Learning rate graph
 
@@ -33,4 +34,10 @@ To view tensorboard output first run the mnist_cnn.py, then tensorboard.
 ```bash
 > tensorboard --logdir='summary'
 ```
+
+## Ramp and Swish
+The Ramp and Swish activation functions are not in tensorflow so were implemented.
+They are very simple.
+  - [Ramp](./ramp_activation_function.png)
+  - [Swish](./swish_activation_function.png)
 
