@@ -25,7 +25,7 @@ They are very simple.
   - [Ramp](./ramp_activation_function.png) is implemented as
   ```python
   def ramp(x):
-    return tf.clip_by_value(x, clip_value_min=0.001, clip_value_max=0.999, name='ramp')
+    return tf.clip_by_value(x, clip_value_min=0.001, clip_value_max=0.999)
   ```
   - [Swish](./swish_activation_function.png) is implemented as
   ```python
