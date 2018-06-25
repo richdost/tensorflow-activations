@@ -1,10 +1,12 @@
 import tensorflow as tf
 import numpy as np
+import matplotlib.pyplot as plt
 
 # get the data
 from tensorflow.examples.tutorials.mnist import input_data
 tf.logging.set_verbosity(tf.logging.ERROR)
 mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
+plt.rcdefaults()
 
 # Parameterized mnist learning. See effectiveness of different activation functions.
 # Loosely based on this tutorial: http://adventuresinmachinelearning.com/convolutional-neural-networks-tutorial-tensorflow/
@@ -76,6 +78,8 @@ def learn_to_recognize_mnist(epochs = 10, learning_rate = 0.75, batch_size = 100
         accuracy_inputs = { mnist_pixels: mnist.test.images, result_one_hot: mnist.test.labels }
         result = session.run(accuracy, feed_dict=accuracy_inputs)
         print('Trained to accuracy ', result)
+   
+        return result
 
     session.close()
     writer.close()
@@ -101,14 +105,28 @@ activators = {
     'sigmoid': tf.nn.sigmoid
 }
 
+activator_list = []
+performance = []
+
 print('\n\n---------------------------------')
 print('-----   test activation functions -----')
 
 for activator_name in activators:
     activator = activators[activator_name]
     print('\n---', activator_name, '---')
-    learn_to_recognize_mnist(epochs = 7, activator_name = activator_name, activator = activator)
+    result = learn_to_recognize_mnist(epochs = 7, activator_name = activator_name, activator = activator)
+    activator_list.append(activator_name)
+    performance.append(result)
 
 print('\n---------------------------------\n\n')
 
+# Adding a bar graph to the mix
+
+y_pos = np.arange(len(activator_list))
+plt.bar( y_pos , performance , align='center' , alpha = 0.5 )
+plt.xticks( y_pos , activator_list )
+plt.ylabel('Accuracy')
+plt.title('Chart Comparison')
+
+plt.show()
 
