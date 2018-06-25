@@ -13,6 +13,8 @@ The learning curve for each activation method can be viewed
  - textually in the terminal output - View [a sample here](./sample_terminal_output.txt)
  - bar chart comparing efficacy of activation functions - View [a sample here](./comparison_bar_chart.png)
 
+
+#### More Info In Tensorboard
 To view tensorboard output first run the mnist_cnn.py, then tensorboard.
 
 ```bash
