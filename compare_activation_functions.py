@@ -1,5 +1,3 @@
-#!/anaconda3/bin/python3.6
-
 import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
@@ -12,7 +10,7 @@ plt.rcdefaults()
 
 # Parameterized mnist learning. See effectiveness of different activation functions.
 # Loosely based on this tutorial: http://adventuresinmachinelearning.com/convolutional-neural-networks-tutorial-tensorflow/
-def learn_to_recognize_mnist(epochs = 10, learning_rate = 0.75, batch_size = 100, activator = tf.nn.relu, activator_name = '?',weights = tf.Session().run(tf.random_normal([784,300],stddev=0.03))):
+def learn_to_recognize_mnist(epochs = 10, learning_rate = 0.01, batch_size = 100, activator = tf.nn.relu, activator_name = '?',weights = tf.Session().run(tf.random_normal([784,300],stddev=0.03))):
     tf.reset_default_graph()
     tf.set_random_seed(55) # does not work
     writer = tf.summary.FileWriter('./summary', graph = tf.get_default_graph())
