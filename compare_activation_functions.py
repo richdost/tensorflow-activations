@@ -1,3 +1,5 @@
+#!/anaconda3/bin/python3.6
+
 import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
@@ -10,7 +12,7 @@ plt.rcdefaults()
 
 # Parameterized mnist learning. See effectiveness of different activation functions.
 # Loosely based on this tutorial: http://adventuresinmachinelearning.com/convolutional-neural-networks-tutorial-tensorflow/
-def learn_to_recognize_mnist(epochs = 10, learning_rate = 0.75, batch_size = 100, activator = tf.nn.relu, activator_name = '?'):
+def learn_to_recognize_mnist(epochs = 10, learning_rate = 0.75, batch_size = 100, activator = tf.nn.relu, activator_name = '?',weights = tf.Session().run(tf.random_normal([784,300],stddev=0.03))):
     tf.reset_default_graph()
     tf.set_random_seed(55) # does not work
     writer = tf.summary.FileWriter('./summary', graph = tf.get_default_graph())
@@ -22,7 +24,8 @@ def learn_to_recognize_mnist(epochs = 10, learning_rate = 0.75, batch_size = 100
         result_one_hot = tf.placeholder(tf.float32, [None, 10], name = 'result_one_hot')   # 10 possible results with one-hot
 
     with tf.name_scope('hidden_layer_input'):
-        hidden_layer_input_weights = tf.Variable(tf.random_normal([784, 300], stddev=0.03), name='hidden_layer_input_weights')
+        #hidden_layer_input_weights = tf.Variable(tf.random_normal([784, 300], stddev=0.03), name='hidden_layer_input_weights')
+        hidden_layer_input_weights = tf.Variable(weights , name = 'hidden_layer_input_weights')
         pixels_times_weights = tf.matmul(mnist_pixels, hidden_layer_input_weights, name = 'pixels_times_weights')
         hidden_layer_input_bias = tf.Variable(tf.random_normal([300]), name='hidden_layer_input_bias')
         hidden_layer_value = tf.add(pixels_times_weights, hidden_layer_input_bias, name = 'hidden_layer_value') # pixels times weights plus bias
@@ -97,16 +100,18 @@ def swish(x):
 activators = {
     'relu': tf.nn.relu,
     'relu6': tf.nn.relu6,
-    'leaky_relu': tf.nn.leaky_relu,
     'softmax': tf.nn.softmax,
     'tanh': tf.nn.tanh,
     'ramp': ramp,
     'swish': swish,
-    'sigmoid': tf.nn.sigmoid
+    'sigmoid': tf.nn.sigmoid,
+    'leaky_relu':tf.nn.leaky_relu
 }
 
 activator_list = []
 performance = []
+o_weights = tf.random_normal([784, 300], stddev=0.03)
+original_weights = tf.Session().run(o_weights)
 
 print('\n\n---------------------------------')
 print('-----   test activation functions -----')
@@ -114,7 +119,8 @@ print('-----   test activation functions -----')
 for activator_name in activators:
     activator = activators[activator_name]
     print('\n---', activator_name, '---')
-    result = learn_to_recognize_mnist(epochs = 7, activator_name = activator_name, activator = activator)
+    use_weights = original_weights
+    result = learn_to_recognize_mnist(epochs = 7, activator_name = activator_name, activator = activator,weights=use_weights)
     activator_list.append(activator_name)
     performance.append(result)
 
