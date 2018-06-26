@@ -15,7 +15,7 @@ The learning curve for each activation method can be viewed
 
 
 #### More Info In Tensorboard
-To view tensorboard output first run the mnist_cnn.py, then tensorboard.
+To view tensorboard or other output first run, then do tensorboard.
 
 ```bash
 > python3 compare_activation_functions.py
@@ -40,7 +40,7 @@ They are very simple.
 ## Presentation
 Outline for class presentation
   - Introduction
-    - Why NMIST
+    - Why MNIST
     - Why compare activation functions
   - Output
     - Tensorboard
