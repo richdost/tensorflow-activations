@@ -1,5 +1,5 @@
 # tensorflow-activator-comparator
-Compares effectiveness of activation functions in tensorflow for mnist cnn.
+Compares effectiveness of activation functions in tensorflow for learning using MNIST data.
 Class project for Machine Learning in Tensorflow, UC Berkeley Extension.
 
 ## To run 
