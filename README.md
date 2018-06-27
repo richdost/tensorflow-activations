@@ -43,13 +43,11 @@ Outline for class presentation
     - Why MNIST
     - Why compare activation functions
   - Algorithm
-    - Low level so all visible
+    - Written for visibility
+    - Ramp and Swish
+    - Tanh
+    - Weights equal
     - Walk through
-      - Ramp and Swish
-    - Further work
-      - tanh etc issues (local minima?)
-      - Equal initial weights
-      - Learning rate graph
   - Output
     - Tensorboard
     - Learning speed comparison
