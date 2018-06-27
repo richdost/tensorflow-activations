@@ -80,13 +80,14 @@ def learn_to_recognize_mnist(epochs = 10, learning_rate = 0.01, batch_size = 100
         result = session.run(accuracy, feed_dict=accuracy_inputs)
         print('Trained to accuracy ', result)
 
-        session.close()
-        writer.close()
+   #     session.close()
+   #     writer.close()
    
-        return result
+   #     return result
 
-  #  session.close()
-  #  writer.close()
+    session.close()
+    writer.close()
+    return result
 
 # See description of ramp here http://iopscience.iop.org/article/10.1088/1757-899X/224/1/012054/pdf
 # It's a simple clip of values outside 0..1
