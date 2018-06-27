@@ -42,9 +42,6 @@ Outline for class presentation
   - Introduction
     - Why MNIST
     - Why compare activation functions
-  - Output
-    - Tensorboard
-    - Learning speed comparison
   - Algorithm
     - Low level so all visible
     - Walk through
@@ -53,4 +50,7 @@ Outline for class presentation
       - tanh etc issues (local minima?)
       - Equal initial weights
       - Learning rate graph
+  - Output
+    - Tensorboard
+    - Learning speed comparison
 
